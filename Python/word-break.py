@@ -33,6 +33,29 @@ class Solution(object):
 
         return can_break[-1]
 
+    def wordBreak2(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        """
+        l1 = len(s)
+        print 'length of s:' + format(l1)
+        rtype = ''
+        str = ''
+        for i in s:
+            rtype += i
+            s = s[1:]
+            print 's:' + format(s)
+            if rtype in wordDict:
+                print 'rtype:' + format(rtype)
+                str += rtype
+                rtype = ''
+        print 'str:' + format(str)
+        print 'length of str:' + format(len(str))
+        return bool(len(str) == l1)
+
     
 if __name__ == "__main__":
-    print Solution().wordBreak("leetcode", ["leet", "code"])
+    print Solution().wordBreak2("leetcode", ["leet", "code"])
+    print Solution().wordBreak2("aaaaaaa", ["aaaa", "aaa"])

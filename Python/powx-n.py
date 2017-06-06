@@ -44,5 +44,6 @@ class Solution2(object):
 
 
 if __name__ == "__main__":
-    print Solution().pow(3, 5)
-    print Solution().pow(3, -5)
+    print Solution().myPow(3, 5)
+    print Solution().myPow(3, -5)
+    print Solution2().myPow(2, -200)

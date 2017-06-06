@@ -52,5 +52,23 @@ class Solution(object):
                 path.pop()
 
 
+    def wordBreak2(self, s, wordDict):
+        memo = {len(s): ['']}
+        print memo
+
+        def sentences(i):
+            print "i:" + format(i)
+            if i not in memo:
+
+                memo[i] = [s[i:j] + (tail and ' ' + tail)
+                           for j in range(i + 1, len(s) + 1)
+                           if s[i:j] in wordDict
+                           for tail in sentences(j)]
+                print "memo[i]:" + format(memo[i])
+            return memo[i]
+
+        return sentences(0)
+
+
 if __name__ == "__main__":
-    print Solution().wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"])
+    print Solution().wordBreak2("catsanddog", ["cat", "cats", "and", "sand", "dog"])

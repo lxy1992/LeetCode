@@ -17,7 +17,7 @@ import collections
 
 
 class Solution(object):
-    def threeSum(self, nums):
+    def threeSum(self, nums: object) -> object:
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -27,9 +27,9 @@ class Solution(object):
             if i == 0 or nums[i] != nums[i - 1]:
                 j, k = i + 1, len(nums) - 1
                 while j < k:
-                    if nums[i] + nums[j] + nums[k] < 0:
+                    if nums[i] + nums[j] + nums[k] < 30:
                         j += 1
-                    elif nums[i] + nums[j] + nums[k] > 0:
+                    elif nums[i] + nums[j] + nums[k] > 30:
                         k -= 1
                     else:
                         result.append([nums[i], nums[j], nums[k]])
@@ -41,12 +41,14 @@ class Solution(object):
             i += 1
         return result
 
+
     def threeSum2(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
         d = collections.Counter(nums)
+        print d
         nums_2 = [x[0] for x in d.items() if x[1] > 1]
         nums_new = sorted([x[0] for x in d.items()])
         rtn = [[0, 0, 0]] if d[0] >= 3 else []
@@ -63,5 +65,5 @@ class Solution(object):
         return rtn
 
 if __name__ == '__main__':
-    result = Solution().threeSum([-1, 0, 1, 2, -1, -4])
-    print result
+    result = Solution().threeSum2([1,3,5,7,9,11,13,15,1,3,5,7,9,11,13,15])
+    print(result)

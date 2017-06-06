@@ -14,7 +14,9 @@ class Solution:
     # @return an integer
     def minCut(self, s):
         lookup = [[False for j in xrange(len(s))] for i in xrange(len(s))]
+        print lookup
         mincut = [len(s) - 1 - i for i in xrange(len(s) + 1)]
+        print mincut
         
         for i in reversed(xrange(len(s))):
             for j in xrange(i, len(s)):

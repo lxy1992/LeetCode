@@ -31,9 +31,14 @@ class Solution(object):
         """
         distance = 0
         z = x ^ y
+        print z
         while z:
+            print "=====Start loop====="
             distance += 1
+            print distance
             z &= z - 1
+            print z
+            print "=====End loop====="
         return distance
 
     def hammingDistance2(self, x, y):

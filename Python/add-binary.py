@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # Time:  O(n)
 # Space: O(1)
 #
@@ -18,11 +19,14 @@ class Solution:
         for i in xrange(max(len(a), len(b))):
             val = carry
             if i < len(a):
+                # 使用负索引，从右往左依次出现
                 val += int(a[-(i + 1)])
             if i < len(b): 
                 val += int(b[-(i + 1)])
+                print "b:" + format(val)
             carry, val = val / 2, val % 2
             result += str(val)
+
         if carry:
             result += str(carry)
         return result[::-1]

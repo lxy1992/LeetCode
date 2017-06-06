@@ -1,9 +1,13 @@
+# -*- coding: UTF-8 -*-
 # Time:  O(n^2)
 # Space: O(1)
 #
-# Given an array S of n integers, 
-# find three integers in S such that the sum is closest to a given number, target. 
-# Return the sum of the three integers. 
+# Given an array S of n integers,
+# 给一个array S，查找三个实数，其和接近一个给定的数字
+# find three integers in S such that the sum is closest to a given number, target.
+# 返回三和数字的和
+# Return the sum of the three integers.
+# 假设每个输入都只有一个输出
 # You may assume that each input would have exactly one solution.
 #
 # For example, given array S = {-1 2 1 -4}, and target = 1.
@@ -19,6 +23,8 @@ class Solution(object):
         :rtype: int
         """
         nums, result, min_diff, i = sorted(nums), float("inf"), float("inf"), 0
+        print result
+        print min_diff
         while i < len(nums) - 2:
             if i == 0 or nums[i] != nums[i - 1]:
                 j, k = i + 1, len(nums) - 1
